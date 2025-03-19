@@ -112,6 +112,7 @@ const fetchOptions = async () => {
   }
 };
 
+// عند تحميل الصفحة
 onMounted(() => {
   fetchOptions();
   const savedLanguage = localStorage.getItem("language") || "en";
@@ -127,8 +128,8 @@ const validatePhoneNumber = () => {
   if (!iraqPhoneRegex.test(fullPhoneNumber)) {
     phoneError.value =
       language.value === "en"
-        ? "Phone number must start be 14 digits long."
-        : "يجب أن ويتكون من 14 رقمًا.";
+        ? "Phone number must start with +964 and be 10 digits long."
+        : "يجب أن يبدأ الرقم بـ +964 ويتكون من 10 أرقام.";
   } else {
     phoneError.value = "";
   }
@@ -149,7 +150,6 @@ const submitForm = async () => {
     );
 
     alert(language.value === "en" ? "The request has been sent." : "تم إرسال الطلب.");
-    // window.location.reload();
   } catch (error) {
     console.error(error);
   }
