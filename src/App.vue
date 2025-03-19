@@ -150,10 +150,11 @@ const submitForm = async () => {
     );
 
     alert(language.value === "en" ? "The request has been sent." : "تم إرسال الطلب.");
+    window.location.reload();
+
   } catch (error) {
     console.error(error);
   }
-  window.location.reload();
 
 };
 
