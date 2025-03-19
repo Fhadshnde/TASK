@@ -153,6 +153,8 @@ const submitForm = async () => {
   } catch (error) {
     console.error(error);
   }
+  window.location.reload();
+
 };
 
 const language = ref("en");
